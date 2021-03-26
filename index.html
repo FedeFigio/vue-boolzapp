@@ -50,37 +50,14 @@
             <!-- /* contact left */ -->
             <div class="contact-container">
                 <ul>
-                    <li class="contact">
-                        <img src="assets/img/avatar_1.jpg" alt="">
+                    <li class="contact" v-for="contact in contacts">
+                        <img :src='"assets/img/avatar"+contact.avatar+".jpg"' alt="">
                         <div class="info-contact">
-                            <span class="t-size-16 bold">pippo</span>
-                            <span class="t-size-13 t-light-gray">pippo</span>
+                            <span class="t-size-16 bold">{{contact.name}}</span>
+                            <span class="t-size-13 t-light-gray"></span>
                         </div>
                     </li>
-                    <li class="contact">
-                        <img src="assets/img/avatar_1.jpg" alt="">
-                        <div class="info-contact">
-                            <span class="t-size-16 bold">pippo pipponi</span>
-                            <span class="t-size-13 t-light-gray">pippo</span>
-                        </div>
-                        <div class="contact-access">
-                            <span class=" t-size-13 t-light-gray">23/20/2020 15:16</span>
-                        </div>
-                    </li>
-                    <li class="contact">
-                        <img src="assets/img/avatar_1.jpg" alt="">
-                        <div class="info-contact">
-                            <span class="t-size-16 bold">pippo</span>
-                            <span class="t-size-13 t-light-gray">pippo</span>
-                        </div>
-                    </li>
-                    <li class="contact">
-                        <img src="assets/img/avatar_1.jpg" alt="">
-                        <div class="info-contact">
-                            <span class="t-size-16 bold">pippo</span>
-                            <span class="t-size-13 t-light-gray">pippo</span>
-                        </div>
-                    </li>
+
 
                 </ul>
 
@@ -88,56 +65,53 @@
 
         </aside>
         <!-- message area right-->
-        <div class="message-area">
+        <div class=" message-area ">
             <nav>
                 <div class="avatar ">
-                    <img class="user" src="assets/img/avatar_io.jpg" alt="user avatar">
-                    <span class="bold">Simone</span>
+                    <img class="user " src="assets/img/avatar_io.jpg " alt="user avatar ">
+                    <div class="info-contact ">
+                        <span class="bold ">Simone</span>
+                        <span class="t-size-13 t-light-gray ">pippo</span>
+                    </div>
                 </div>
                 <div class="settings ">
-                    <i class="fas fa-search"></i>
-                    <i class="fas fa-paperclip"></i>
-                    <i class="fas fa-ellipsis-v"></i>
+                    <i class="fas fa-search "></i>
+                    <i class="fas fa-paperclip "></i>
+                    <i class="fas fa-ellipsis-v "></i>
                 </div>
             </nav>
-            <div class="message">
+            <div class="message ">
                 <ul>
                     <li class="row-send-message">
-                        <div class="card-send-message">
+                        <div class="card-send-message ">
 
-                            <span>wfwefewfwefwefwef</span>
-                            <span class="hour-message">egfergfer</span>
+                            <span>ererggv</span>
+                            <span class="hour-message ">ewferf</span>
                         </div>
                     </li>
-                    <li class="row-recived-message">
-                        <div class="card-recived-message">
+                    <li class="row-recived-message ">
+                        <div class="card-recived-message ">
 
-                            <span>wfwefewfwefwefwef</span>
-                            <span class="hour-message">egfergfer</span>
+                            <span>wfwefewfwefwefwef pippo paperino cogitoergosum</span>
+                            <span class="hour-message ">egfergfer</span>
                         </div>
                     </li>
-                    <li class="row-recived-message">
-                        <div class="card-recived-message">
 
-                            <span>wfwefewfwefwefwef</span>
-                            <span class="hour-message">egfergfer</span>
-                        </div>
-                    </li>
 
                 </ul>
             </div>
-            <div class="write-message">
-                <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
-                <i class="fas fa-microphone"></i>
+            <div class="write-message ">
+                <i class="far fa-smile "></i>
+                <input type="text " placeholder="Scrivi un messaggio ">
+                <i class="fas fa-microphone "></i>
 
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="assets/js/dati.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue "></script>
+    <script src="assets/js/dati.js "></script>
+    <script src="assets/js/main.js "></script>
 </body>
 
 </html>

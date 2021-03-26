@@ -46,6 +46,14 @@ aside.left {
     width: calc(100% /3 *2);
 }
 
+.message-area .info-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+}
+
 .message-area .message {
     background-image: url(../img/mine.jpg);
     width: 100%;
@@ -60,9 +68,11 @@ aside.left {
 }
 
 .message [class^="card"] {
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
     padding: 1rem;
-    width: 35%;
+    width: 40%;
     border-radius: 10px;
 }
 
@@ -249,5 +259,5 @@ bg-light-gray {
 }
 
 .t-light-gray {
-    color: #c2c2c2;
+    color: #a5a5a5;
 }
