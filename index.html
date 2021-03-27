@@ -16,15 +16,16 @@
 <body>
     <div class="bg-green-bar"></div>
     <div class="bg-gray"></div>
-    <div id="root">
+    <div id="root" class="flex">
+
         <!-- asidebar  left-->
-        <aside class="left">
+        <aside class="left flex column">
+
             <!-- /* navbar left */ -->
             <nav>
-                <div class="avatar ">
+                <div class="avatar flex a-center h-100">
                     <img class="user" src="assets/img/avatar_io.jpg" alt="user avatar">
                     <span class="bold">Simone</span>
-
                 </div>
                 <div class="settings ">
                     <i class="fas fa-circle-notch"></i>
@@ -32,45 +33,44 @@
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
             </nav>
+
             <!-- /* notification left */ -->
-            <div class="notification">
+            <div class="notification flex a-center">
                 <i class="fas fa-bell-slash"></i>
-                <div class="settings-notification">
+                <div class="settings-notification flex column">
                     <span class="bold t-size-13">Ricevi notifiche di nuovi messaggi</span>
                     <span class="t-size-13 t-light-gray underline">Attiva le notifiche desktop</span>
                 </div>
             </div>
+
             <!-- /* search bar left */ -->
-            <div class="search">
+            <div class="search flex a-center">
                 <i class="fas fa-search"></i>
                 <input type="text" placeholder="Cerca">
-
-
             </div>
+
             <!-- /* contact left */ -->
             <div class="contact-container">
                 <ul>
-                    <li class="contact" v-for="contact in contacts">
+                    <li :class="{'bg-light-gray': i == activeIndex}" class="contact flex a-center" v-for="(contact,i) in contacts" @click="setActiveContact(i)">
                         <img :src='"assets/img/avatar"+contact.avatar+".jpg"' alt="">
-                        <div class="info-contact">
-                            <span class="t-size-16 bold">{{contact.name}}</span>
-                            <span class="t-size-13 t-light-gray"></span>
+                        <div class="info-contact flex column">
+                            <span class="t-size-16 bold">{{ contact.name }}</span>
+                            <span class="t-size-10 t-light-gray">{{ lastMessage(i).text }}</span>
                         </div>
+                        <span class="t-size-10 t-light-gray contact-access flex">{{ lastMessage(i).date }}</span>
                     </li>
-
-
                 </ul>
-
             </div>
-
         </aside>
+
         <!-- message area right-->
         <div class=" message-area ">
-            <nav>
-                <div class="avatar ">
-                    <img class="user " src="assets/img/avatar_io.jpg " alt="user avatar ">
-                    <div class="info-contact ">
-                        <span class="bold ">Simone</span>
+            <nav class="flex j-between a-center">
+                <div class="avatar flex a-center h-100">
+                    <img class="user " :src="'assets/img/avatar' + contacts[activeIndex].avatar + '.jpg' " alt="user avatar ">
+                    <div class="info-contact flex j-center column">
+                        <span class="bold ">{{ contacts[activeIndex].name }}</span>
                         <span class="t-size-13 t-light-gray ">pippo</span>
                     </div>
                 </div>
@@ -80,27 +80,20 @@
                     <i class="fas fa-ellipsis-v "></i>
                 </div>
             </nav>
-            <div class="message ">
+
+            <!-- car message -->
+            <div class="message">
                 <ul>
-                    <li class="row-send-message">
-                        <div class="card-send-message ">
-
-                            <span>ererggv</span>
-                            <span class="hour-message ">ewferf</span>
+                    <li v-for="(message, index) in activeContactMessages" :key="index" class="row-message flex">
+                        <div :class='{"card-sent-message" : message.status == "sent",
+                            "card-recived-message" : message.status == "received"}'>
+                            <span class="t-size-13 message-text">{{ message.text }}</span>
+                            <span class="hour-message t-size-10">{{ message.date }}</span>
                         </div>
                     </li>
-                    <li class="row-recived-message ">
-                        <div class="card-recived-message ">
-
-                            <span>wfwefewfwefwefwef pippo paperino cogitoergosum</span>
-                            <span class="hour-message ">egfergfer</span>
-                        </div>
-                    </li>
-
-
                 </ul>
             </div>
-            <div class="write-message ">
+            <div class="write-message flex a-center j-between">
                 <i class="far fa-smile "></i>
                 <input type="text " placeholder="Scrivi un messaggio ">
                 <i class="fas fa-microphone "></i>

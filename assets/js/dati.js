@@ -16,7 +16,17 @@ const contacts = [{
                 date: '10/01/2020 16:15:22',
                 text: 'Tutto fatto!',
                 status: 'received'
-            }
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 16:15:22',
+                text: 'Tutto fatto!',
+                status: 'received'
+            },
         ],
     },
     {
@@ -30,7 +40,7 @@ const contacts = [{
             },
             {
                 date: '20/03/2020 16:30:55',
-                text: 'Bene grazie! Stasera ci vediamo?',
+                text: 'Bene grazie! Stasera ci vediamo? ',
                 status: 'received'
             },
             {
