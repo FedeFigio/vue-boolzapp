@@ -95,7 +95,7 @@
             </div>
             <div class="write-message flex a-center j-between">
                 <i class="far fa-smile "></i>
-                <input type="text " placeholder="Scrivi un messaggio ">
+                <input v-model="inputTxt" @keyup.enter="sentMessage" type="text " placeholder="Scrivi un messaggio ">
                 <i class="fas fa-microphone "></i>
 
             </div>
