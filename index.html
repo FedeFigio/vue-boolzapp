@@ -16,7 +16,7 @@
 <body>
     <div class="bg-green-bar"></div>
     <div class="bg-gray"></div>
-    <div id="root" class="flex">
+    <div id="root" class="flex" @click="rootClick">
 
         <!-- asidebar  left-->
         <aside class="left flex column">
@@ -86,15 +86,14 @@
                 <ul>
                     <li v-for="(message, index) in activeContactMessages" :key="index" class="row-message flex">
                         <div :class='{"card-sent-message" : message.status == "sent",
-                            "card-recived-message" : message.status == "received"}'>
+                            "card-recived-message" : message.status == "received"}' class="message-card">
                             <i class="fas fa-chevron-down" @click="toggleMenu"></i>
+
                             <span class="t-size-13 message-text">{{ message.text }}</span>
                             <span class="hour-message t-size-10">{{ message.date }}</span>
-                            <div class="edit-message">
-                                <span>efewgfv</span>
-                                <span>efewgfv</span>
-                                <span>efewgfv</span>
-                                <span>efewgfv</span>
+                            <div class="edit-message flex column j-center">
+                                <span @click="deleteMessage(index)">Cancella </span>
+                                <span>Info </span>
                             </div>
                         </div>
                     </li>

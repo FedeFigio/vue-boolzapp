@@ -13,6 +13,10 @@ var app = new Vue({
         setActiveContact(index) {
             this.activeIndex = index
         },
+        deleteMessage(index) {
+            this.activeContactMessages[index].text = "Messaggio Cancellato"
+            this.untoggleAllMenu()
+        },
         lastMessage(index) {
             var msgs = contacts[index].messages
             return msgs[msgs.length - 1]
@@ -25,7 +29,6 @@ var app = new Vue({
                     status: 'received'
                 }
                 contacts[this.activeIndex].messages.push(obj)
-
             }, 1000);
         },
         sentMessage() {
@@ -42,7 +45,6 @@ var app = new Vue({
             }
         },
         actualDateMessage() {
-
             var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -56,11 +58,26 @@ var app = new Vue({
         toggleMenu(e) {
             let editMessage = e.target.parentNode.querySelector(".edit-message")
             let status = editMessage.classList.contains("active")
+            this.untoggleAllMenu()
+            if (!status) {
+                editMessage.classList.add("active")
+            }
+        },
+        untoggleAllMenu() {
             document.querySelectorAll(".edit-message").forEach((e) => {
                 e.classList.remove("active")
             })
-            if (!status) {
-                editMessage.classList.add("active")
+        },
+        rootClick(e) {
+            var containEditMessage = false;
+            for (let i = 0; i < e.path.length; i++) {
+                if (e.path[i].classList && e.path[i].classList.contains("message-card")) {
+                    containEditMessage = true;
+                    break;
+                }
+            }
+            if (!containEditMessage) {
+                this.untoggleAllMenu()
             }
         }
     },
@@ -78,5 +95,4 @@ var app = new Vue({
             })
         },
     },
-    mounted() {}
 })
