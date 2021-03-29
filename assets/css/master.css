@@ -69,6 +69,32 @@ aside.left {
     border-radius: 10px;
 }
 
+.row-message i {
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.message [class^="card"]:hover i {
+    opacity: 1;
+}
+
+.message .edit-message {
+    position: absolute;
+    top: 30px;
+    right: 21px;
+    width: 150px;
+    background-color: #FFF;
+    z-index: 10;
+    display: none;
+}
+
+.message .edit-message.active {
+    display: flex;
+}
+
 .card-sent-message {
     background-color: #DCF8C6;
     margin-left: auto;

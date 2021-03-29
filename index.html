@@ -46,13 +46,13 @@
             <!-- /* search bar left */ -->
             <div class="search flex a-center">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cerca">
+                <input v-model="inputSearch" type="text" placeholder="Cerca">
             </div>
 
             <!-- /* contact left */ -->
             <div class="contact-container">
                 <ul>
-                    <li :class="{'bg-light-gray': i == activeIndex}" class="contact flex a-center" v-for="(contact,i) in contacts" @click="setActiveContact(i)">
+                    <li :class="{'bg-light-gray': i == activeIndex}" class="contact flex a-center" v-for="(contact,i) in filteredContacts" @click="setActiveContact(i)">
                         <img :src='"assets/img/avatar"+contact.avatar+".jpg"' alt="">
                         <div class="info-contact flex column">
                             <span class="t-size-16 bold">{{ contact.name }}</span>
@@ -81,14 +81,21 @@
                 </div>
             </nav>
 
-            <!-- car message -->
+            <!-- card message -->
             <div class="message">
                 <ul>
                     <li v-for="(message, index) in activeContactMessages" :key="index" class="row-message flex">
                         <div :class='{"card-sent-message" : message.status == "sent",
                             "card-recived-message" : message.status == "received"}'>
+                            <i class="fas fa-chevron-down" @click="toggleMenu"></i>
                             <span class="t-size-13 message-text">{{ message.text }}</span>
                             <span class="hour-message t-size-10">{{ message.date }}</span>
+                            <div class="edit-message">
+                                <span>efewgfv</span>
+                                <span>efewgfv</span>
+                                <span>efewgfv</span>
+                                <span>efewgfv</span>
+                            </div>
                         </div>
                     </li>
                 </ul>
