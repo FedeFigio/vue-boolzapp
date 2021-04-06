@@ -12,6 +12,7 @@ var app = new Vue({
     methods: {
         setActiveContact(index) {
             this.activeIndex = index
+            this.contacts[this.activeIndex].unread = false
         },
         deleteMessage(index) {
             this.activeContactMessages[index].text = "Messaggio Cancellato"
@@ -21,17 +22,22 @@ var app = new Vue({
             var msgs = contacts[index].messages
             return msgs[msgs.length - 1]
         },
-        autoAnswer() {
+        autoAnswer(i) {
             setTimeout(() => {
                 let obj = {
                     date: this.actualDateMessage(),
                     text: "ok",
-                    status: 'received'
+                    status: 'received',
                 }
-                contacts[this.activeIndex].messages.push(obj)
+
+                if (i != this.activeIndex) {
+                    contacts[i].unread = true
+                }
+                contacts[i].messages.push(obj)
             }, 1000);
         },
         sentMessage() {
+            let index = this.activeIndex
             if (this.inputTxt != "") {
 
                 let obj = {
@@ -41,7 +47,7 @@ var app = new Vue({
                 }
                 contacts[this.activeIndex].messages.push(obj)
                 this.inputTxt = ""
-                this.autoAnswer()
+                this.autoAnswer(index)
             }
         },
         actualDateMessage() {
@@ -79,7 +85,7 @@ var app = new Vue({
             if (!containEditMessage) {
                 this.untoggleAllMenu()
             }
-        }
+        },
     },
     computed: {
         activeContactMessages() {

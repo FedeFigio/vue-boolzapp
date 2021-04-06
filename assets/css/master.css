@@ -215,6 +215,13 @@ img.user {
 
 /* contact left */
 
+.dot {
+    position: absolute;
+    color: lightskyblue;
+    top: 50%;
+    right: 10px;
+}
+
 .contact-container {
     overflow-y: scroll;
     height: 100%;
@@ -224,6 +231,7 @@ img.user {
     height: 5.5rem;
     border-bottom: 1px solid #D9DCD5;
     padding: 0 .7rem;
+    position: relative;
 }
 
 .contact img {

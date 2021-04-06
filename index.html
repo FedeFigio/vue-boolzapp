@@ -59,6 +59,7 @@
                             <span class="t-size-10 t-light-gray">{{ lastMessage(i).text }}</span>
                         </div>
                         <span class="t-size-10 t-light-gray contact-access flex">{{ lastMessage(i).date }}</span>
+                        <i v-if="contact.unread && i != activeIndex" class="fas fa-circle dot"></i>
                     </li>
                 </ul>
             </div>
